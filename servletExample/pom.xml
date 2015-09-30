@@ -6,11 +6,11 @@
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>ru.kpfu</groupId>
-  <artifactId>guestBook</artifactId>
+  <artifactId>servletExample</artifactId>
   <packaging>war</packaging>
-  <version>1.0-Alpha</version>
+  <version>1.0</version>
   
-  <name>GuestBook</name>
+  <name>Servlet Example</name>
 
   <properties>
     <!-- Generic properties -->
@@ -40,14 +40,6 @@
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.12.4</version>
-        <configuration>
-          <skipTests>true</skipTests>
         </configuration>
       </plugin>
     </plugins>
