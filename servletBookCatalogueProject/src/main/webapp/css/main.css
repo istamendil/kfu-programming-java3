@@ -1,0 +1,23 @@
+.book-catalogue .annotation{
+  font-size:14px;
+  text-indent: 40px;
+}
+.book-catalogue .remove_book_button{
+  color:red;
+  font-size: 0.8em;
+}
+.book-catalogue h5.title{
+  font-size:18px;
+}
+.book-catalogue h5.title:first-letter{
+  color:red;
+  font-size:1.4em;
+}
+.book-catalogue .year{
+  color:#ccc;
+  font-size:14px;
+}
+.wrapper{
+  margin:0px auto 0px auto;
+  width:960px;
+}

@@ -23,7 +23,6 @@ public class RegistrationServlet extends HttpServlet{
         req.setAttribute("message", "User has been created.");
       }
     }
-    
     getServletContext().getRequestDispatcher("/WEB-INF/views/registration.jsp").forward(req, resp);
   }
   
