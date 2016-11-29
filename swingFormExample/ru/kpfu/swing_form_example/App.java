@@ -1,26 +1,24 @@
-package ru.kpfu;
+package ru.kpfu.swing_form_example;
 
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 /**
  *
- * @author Alexander Ferenets (Istamendil) <ist.kazan@gmail.com>
+ * @author Alexander Ferenets (Istamendil, ist.kazan@gmail.com)
  */
 public class App {
 
@@ -45,6 +43,9 @@ public class App {
   private JTextField categoryField;
   private JButton saveButton;
 
+  /**
+   * Build GUI.
+   */
   private void createGui() {
     // Create main frame and set it up
     mainFrame = new JFrame(App.TITLE);
@@ -53,15 +54,12 @@ public class App {
     // for global Key listening use KeyboardFocusManager
     // It is needed due to focus-listen behavior
     KeyboardFocusManager.getCurrentKeyboardFocusManager()
-            .addKeyEventDispatcher(new KeyEventDispatcher() {
-              @Override
-              public boolean dispatchKeyEvent(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
-                  System.exit(0);
-                }
-                return false;
+            .addKeyEventDispatcher((KeyEvent e) -> {
+              if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+                System.exit(0);
               }
-            });
+              return false;
+    });
 
     // Add Components
     mainPanel = new JPanel(null);
@@ -90,25 +88,8 @@ public class App {
     productFormPanel.add(new JPanel(), spacer);
     
     saveButton = new JButton("Save");
-    saveButton.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        JDialog dialog = new JDialog(mainFrame, "Saving");
-        dialog.setLayout(new FlowLayout());
-        JLabel dialogLabel = new JLabel("Element has been saved", JLabel.CENTER);
-        dialog.add(dialogLabel);
-        JButton dialogButton = new JButton("OK");
-        dialogButton.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-            dialog.setVisible(false);
-          }
-        });
-        dialog.add(dialogButton);
-        dialog.setBounds(100, 100, 200, 80);
-        dialog.setResizable(false);
-        dialog.setVisible(true);
-      }
+    saveButton.addActionListener((ActionEvent e) -> {
+      JOptionPane.showMessageDialog(mainFrame, "Data has been saved.");
     });
     productFormPanel.add(saveButton, this.newTextFieldConstraints());
 
@@ -124,6 +105,10 @@ public class App {
     mainFrame.setVisible(true);
   }
 
+  /**
+   * Construct base for components constraints.
+   * @return Constraints base.
+   */
   private GridBagConstraints newConstraints() {
     GridBagConstraints c = new GridBagConstraints();
     // a little breathing room
@@ -131,6 +116,10 @@ public class App {
     return c;
   }
 
+  /**
+   * Constructs constraints for labels.
+   * @return Constraints for labels.
+   */
   private GridBagConstraints newLabelConstraints() {
     GridBagConstraints c = this.newConstraints();
     // right-align labels
@@ -140,6 +129,10 @@ public class App {
     return c;
   }
 
+  /**
+   * Constructs constraints for text fields.
+   * @return Constraints for text fields.
+   */
   private GridBagConstraints newTextFieldConstraints() {
     GridBagConstraints c = this.newConstraints();
     c.anchor = GridBagConstraints.BASELINE;
