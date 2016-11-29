@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Alexander Ferenets (Istamendil) <ist.kazan@gmail.com>
+ * @author Alexander Ferenets (Istamendil, ist.kazan@gmail.com)
  */
 public class HelloServlet extends HttpServlet{
   
@@ -31,6 +31,11 @@ public class HelloServlet extends HttpServlet{
     out.println(getPageCode(greetings));
   }
   
+  /**
+   * Helper that generates page code for both GET and POST.
+   * @param content Data to output after showing form.
+   * @return HTML content for page.
+   */
   protected String getPageCode(String content){
     return "<!DOCTYPE html><html>"
             + "<head><meta charset='UTF-8'><title>Hello page</title></head>"
