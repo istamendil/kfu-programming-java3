@@ -5,7 +5,9 @@
          version="3.1">
   
   <welcome-file-list>
-    <welcome-file>book_list</welcome-file>    
+    <welcome-file>book_list</welcome-file>
+    
+    <!-- Just example. At this project it's unnecessary stuff. --> 
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>

@@ -21,7 +21,7 @@ public class BookRemoveServlet extends HttpServlet{
     // Notices for response
     ArrayList<String> notices = new ArrayList<>();
     try{
-      //trye to remove entity with its repository
+      //try to remove entity with its repository
       BookRepository.remove(Integer.valueOf(req.getParameter("id")));
     }
     catch(DbException ex){

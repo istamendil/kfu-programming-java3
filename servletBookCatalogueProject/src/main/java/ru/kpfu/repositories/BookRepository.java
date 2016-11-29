@@ -25,7 +25,7 @@ public class BookRepository {
     try {
       // Using Prepare statement instead simple statement 
       // and generating SQL from parameters ourselves is important due to security reasons (SQL injection)
-      PreparedStatement st= conn.prepareStatement("INSERT INTO `books` SET `name`=?, `year`=?, `annotation`=?");
+      PreparedStatement st = conn.prepareStatement("INSERT INTO `books` SET `name`=?, `year`=?, `annotation`=?");
       st.setString(1, book.getName());
       st.setInt(2, book.getYear());
       st.setString(3, book.getAnnotation());
@@ -64,7 +64,7 @@ public class BookRepository {
     try {
       // Using Prepare statement instead simple statement 
       // and generating SQL from parameters ourselves is important due to security reasons (SQL injection)
-      PreparedStatement st= conn.prepareStatement("delete from `books` where `id`=?");
+      PreparedStatement st = conn.prepareStatement("delete from `books` where `id`=?");
       st.setInt(1, id);
       st.execute();
     } catch (SQLException ex) {
