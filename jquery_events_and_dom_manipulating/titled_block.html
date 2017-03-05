@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Titled block</title>
+    <script src="jquery-2.1.3.js"></script>
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+      body{
+        background-color: #84CCC1;
+      }
+      div.block{
+        color:#fff;
+        margin:100px auto;
+        min-height:380px;
+        padding:0px;
+        width:800px;
+      }
+      div.block .content{
+        background-color:#022F32;
+        min-height:330px;
+        padding:30px;
+        width:100%;
+      }
+      div.block .title{
+        background-color:#087070;
+        cursor:pointer;
+        height:50px;
+        font-size:1.4em;
+        font-weight:bold;
+        padding:10px 40px;
+        text-align: center;
+        width:100%;
+      }
+      p{
+        text-align: justify;
+        text-indent:40px;
+      }
+      p:first-letter{
+        font-size:1.3em;
+      }
+    </style>
+    <script>
+      $(document).ready(function(){
+        $('.block .title').click(
+                function () {
+                  $(this).closest('.block').children('.content').toggle();
+                }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <div class="block">
+      <div class="title">
+        Незначительный драматизм в XXI веке
+      </div>
+      <div class="content">
+        <p>Ф.Шилер, Г.Гете, Ф.Шлегели и А.Шлегели выразили типологическую антитезу классицизма и романтизма через противопоставление искусства "наивного" и "сентиментального", поэтому искусство косвенно. Весьма существенно следующее: художественная жизнь характерна. Культурная аура произведения, согласно традиционным представлениям, образует социально-психологический фактор.</p>
+        <p>Эротическое, как бы это ни казалось парадоксальным, готично трансформирует бессознательный "кодекс деяний". Компенсаторная функция, в первом приближении, свободна. Параллельность стилевого развития свободна. Художественный идеал иллюстрирует фактографический мимезис.</p>
+        <p>Адаптация, в том числе, монотонно вызывает горизонт ожидания. Социальная психология искусства, на первый взгляд, характерна. Иносказательность образа вероятна. Синтез искусств продолжает принцип артистизма. Переживание и его претворение диссонирует хорал.</p>
+      </div>
+    </div>
+  </body>
+</html>
