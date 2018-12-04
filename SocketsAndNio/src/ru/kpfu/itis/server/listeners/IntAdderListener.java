@@ -3,7 +3,6 @@ package ru.kpfu.itis.server.listeners;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
-import java.util.Arrays;
 import ru.kpfu.itis.protocol.Message;
 import ru.kpfu.itis.server.AbstractServerEventListener;
 import ru.kpfu.itis.server.ServerEventListenerException;
