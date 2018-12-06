@@ -12,7 +12,7 @@ public class IntAdderListener extends AbstractServerEventListener{
 
   
   @Override
-  public void handle(Socket socket, Message message) throws ServerEventListenerException {
+  public void handle(int connectionId, Message message) throws ServerEventListenerException {
     if(!this.init){
       throw new ServerEventListenerException("Listener has not been initiated yet.");
     }
@@ -21,7 +21,7 @@ public class IntAdderListener extends AbstractServerEventListener{
     int summ = buffer.get(0) + buffer.get(1);
     Message answer = Message.createMessage(Message.TYPE1, ByteBuffer.allocate(4).putInt(summ).array());
     try{
-      this.server.sendMessage(socket, answer);
+      this.server.sendMessage(connectionId, answer);
     } catch (ServerException ex) {
       //Add some catch implementation
     }

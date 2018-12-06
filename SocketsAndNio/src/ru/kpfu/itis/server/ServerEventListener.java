@@ -5,6 +5,6 @@ import ru.kpfu.itis.protocol.Message;
 
 public interface ServerEventListener {
   public void init(ServerExample server);
-  public void handle(Socket socket, Message message) throws ServerEventListenerException;
+  public void handle(int connectionId, Message message) throws ServerEventListenerException;
   public int getType();
 }

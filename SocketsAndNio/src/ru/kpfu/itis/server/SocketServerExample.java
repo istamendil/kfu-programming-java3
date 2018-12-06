@@ -54,6 +54,7 @@ public class SocketServerExample implements ServerExample{
   
   protected void handleConnection(Socket socket) throws ServerException{
     sockets.add(socket);
+    int connectionId = sockets.lastIndexOf(socket);
     try{
       // Every connection will wait creating and handling of message
       Message message = Message.readMessage(socket.getInputStream());
@@ -63,7 +64,7 @@ public class SocketServerExample implements ServerExample{
         if(message.getType() == listener.getType()){
           // One by one! Another left listeners will wait current
           // Another thread could be created here or before for every Listener
-          listener.handle(socket, message);
+          listener.handle(connectionId, message);
         }
       }
     }
@@ -75,12 +76,13 @@ public class SocketServerExample implements ServerExample{
   }
   
   @Override
-  public void sendMessage(Socket socket, Message message) throws ServerException{
+  public void sendMessage(int connectionId, Message message) throws ServerException{
     if(!started){
       throw new ServerException("Server hasn't been started yet.");
     }
     //ToDo: check if this socket is from our pull
     try{
+      Socket socket = sockets.get(connectionId);
       socket.getOutputStream().write(Message.getBytes(message));
       socket.getOutputStream().flush();
     } catch (IOException ex) {
