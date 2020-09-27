@@ -22,4 +22,5 @@ build.xml
 build/
 nbproject/
 nb-configuration.xml
+.idea/
 /SocketsAndNio/dist/
