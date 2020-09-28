@@ -6,11 +6,11 @@
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>ru.kpfu</groupId>
-  <artifactId>servletExample</artifactId>
+  <artifactId>servletExampleThird</artifactId>
   <packaging>war</packaging>
   <version>1.0</version>
   
-  <name>Servlet Example</name>
+  <name>Servlet Example: Third</name>
 
   <properties>
     <!-- Generic properties -->

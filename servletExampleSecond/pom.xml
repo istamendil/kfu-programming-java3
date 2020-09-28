@@ -6,11 +6,11 @@
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>ru.kpfu</groupId>
-  <artifactId>test31</artifactId>
+  <artifactId>servletExampleSecond</artifactId>
   <packaging>war</packaging>
-  <version>1.0</version>
+  <version>1.1</version>
   
-  <name>Servlet Test 31</name>
+  <name>Servlet Example: Second</name>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -20,6 +20,7 @@
   </properties>
   
   <dependencies>
+    <!-- Complex artifact with everything needed and more. -->
     <!-- Servlet + EJB Lite + JPA + JSP + EL + JSTL + JSF + JTA + JSR-45 + JSR-250 -->
     <dependency>
       <groupId>javax</groupId>
