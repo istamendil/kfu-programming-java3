@@ -23,7 +23,7 @@
     <javax.servlet.jsp-api.version>2.0</javax.servlet.jsp-api.version>
     <javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
     <com.opencsv.version>3.5</com.opencsv.version>
-    <mysql.connector.version>5.1.36</mysql.connector.version>
+    <mysql.connector.version>8.0.16</mysql.connector.version>
   </properties>
   
   <dependencies>

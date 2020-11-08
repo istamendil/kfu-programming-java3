@@ -1,0 +1,16 @@
+body{
+  background-color:#ccc;
+}
+.contents{
+  margin:30px auto;
+  width:1200px;
+}
+nav.top{
+  border:double 5px #666;
+  margin:50px;
+  padding:10px;
+}
+
+input{
+  margin:5px;
+}

@@ -6,11 +6,11 @@
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>ru.kpfu</groupId>
-  <artifactId>servletExample</artifactId>
+  <artifactId>servletExampleFirst</artifactId>
   <packaging>war</packaging>
   <version>1.0</version>
   
-  <name>Servlet Example</name>
+  <name>Servlet Example: First</name>
 
   <properties>
     <!-- Generic properties -->
@@ -18,17 +18,15 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <!-- Java EE / Java SE dependencies -->
-    <javax.servlet.api.version>3.1.0</javax.servlet.api.version>
   </properties>
   
   <dependencies>
-    <!-- JAVA stuff -->
-    <dependency>  
-      <groupId>javax.servlet</groupId>  
-      <artifactId>javax.servlet-api</artifactId>  
-      <version>${javax.servlet.api.version}</version>  
-      <scope>provided</scope>  
+    <!-- Servlets base itself. But usually JSP, JSTL and JSP-250 are needed. -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>
