@@ -14,12 +14,23 @@ hs_err_pid*
 # Temp files
 *~
 
+# Project files
 app.properties
-target/
+/SocketsAndNio/dist/
+
+
+# Netbeans
+nbproject/
+nb-configuration.xml
 nbactions.xml
 manifest.mf
 build.xml
 build/
-nbproject/
-nb-configuration.xml
-/SocketsAndNio/dist/
+
+# Maven
+target/
+
+# Idea
+.idea/
+out/
+*.iml
