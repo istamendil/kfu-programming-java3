@@ -1,21 +1,26 @@
 package ru.kpfu.itis.server;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.spi.SelectorProvider;
 import java.util.ArrayList;
 import java.util.List;
 import ru.kpfu.itis.protocol.Message;
 
-public class SocketServerExample implements ServerExample{
+public class NioSocketServerExample implements ServerExample{
   protected List<ServerEventListener> listeners;
   protected int port; 
   protected ServerSocket server;
+  protected Selector selector;
   protected boolean started;
   // Better to incapsulate to List<Connection>
   protected List<Socket> sockets;
   
-  public SocketServerExample(int port){
+  public NioSocketServerExample(int port){
     this.listeners = new ArrayList<>();
     this.port = port;
     this.sockets = new ArrayList<>();
@@ -35,7 +40,13 @@ public class SocketServerExample implements ServerExample{
   public void start() throws ServerException{
     try{
       // Start server
-      server = new ServerSocket(this.port);
+      selector = SelectorProvider.provider().openSelector();
+      ServerSocketChannel ssc = ServerSocketChannel.open();
+      ssc.configureBlocking(false);
+      server = ssc.socket();
+      server.bind(new InetSocketAddress(this.port));
+      // There are no connections yet so validOps will return only SelectionKey.OP_ACCEPT. 
+      ssc.register(selector, ssc.validOps());
       started = true;
       
       // Proccess connections
