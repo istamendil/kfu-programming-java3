@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class Client {
     public static void main(String[] args) throws Throwable {
+
         System.out.println("Starting client...");
         Socket s = new Socket(InetAddress.getLocalHost(), Protocol.PORT);
         OutputStream out = s.getOutputStream();
