@@ -32,9 +32,9 @@ public class Server {
 
         Color c;
         ByteBuffer buf = ByteBuffer.allocate(12);
-        int b;
+        int b = -1;
         int counter = 0;
-        while((b = in.read()) != -1){
+        while((counter>=12)||((b = in.read()) != -1)){
             //Got whole color
             if(counter >= 12){
                 System.out.println(Arrays.toString(buf.array()));
@@ -49,11 +49,12 @@ public class Server {
                 System.out.println("Waiting for the next color");
                 counter = 0;
                 buf = ByteBuffer.allocate(12);
+            }  else {
+				//Add new byte to buffer
+                System.out.println((byte)b);
+                buf.put((byte)b);
+                counter++;
             }
-            //Add new byte to buffer
-            System.out.println((byte)b);
-            buf.put((byte)b);
-            counter++;
         }
     }
 }
